@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Calculator</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .calculator-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 320px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            font-size: 1.1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+            -moz-appearance: textfield;
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"]:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .operator-btn {
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            color: white;
+        }
+
+        .add-btn { background-color: #2ecc71; }
+        .add-btn:hover { background-color: #27ae60; transform: translateY(-1px); }
+
+        .subtract-btn { background-color: #e67e22; }
+        .subtract-btn:hover { background-color: #d35400; transform: translateY(-1px); }
+
+        .multiply-btn { background-color: #3498db; }
+        .multiply-btn:hover { background-color: #2980b9; transform: translateY(-1px); }
+
+        .divide-btn { background-color: #e74c3c; }
+        .divide-btn:hover { background-color: #c0392b; transform: translateY(-1px); }
+
+        .result-display {
+            background-color: #ecf0f1;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #2c3e50;
+            min-height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-container">
+        <h1>Simple Calculator id 4008</h1>
+
+        <div class="input-group">
+            <input type="number" id="num1" placeholder="First number">
+            <input type="number" id="num2" placeholder="Second number">
+        </div>
+
+        <div class="button-group">
+            <button onclick="calculate('add')" class="operator-btn add-btn">+</button>
+            <button onclick="calculate('subtract')" class="operator-btn subtract-btn">-</button>
+            <button onclick="calculate('multiply')" class="operator-btn multiply-btn">*</button>
+            <button onclick="calculate('divide')" class="operator-btn divide-btn">/</button>
+        </div>
+
+        <div class="result-display" id="output"></div>
+    </div>
+
+    <script src="calculator.js"></script>
+
+</body>
+</html>
