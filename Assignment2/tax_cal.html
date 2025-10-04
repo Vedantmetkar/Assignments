@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Calculator</title>
+</head>
+<body>
+  <h1>Tax Calculator</h1>
+  <p>Enter your salary to calculate the tax.</p>
+
+  <div>
+    <input 
+      id="salaryInput" 
+      type="number" 
+      placeholder="Enter salary amount"
+    >
+    <button id="calculateBtn">Calculate Tax</button>
+  </div>
+
+  <div id="results" style="margin-top: 20px; display: none;">
+    <h2>Results</h2>
+    <p>Salary: <span id="displaySalary"></span></p>
+    <p>Tax Rate: <span id="displayRate"></span></p>
+    <p>Tax Amount: <span id="displayTax"></span></p>
+  </div>
+
+  <div id="error" style="margin-top: 20px; color: red; display: none;">
+    <p id="errorMessage"></p>
+  </div>
+
+  <script>
+   
+    function findTax(salary) {
+      switch (true) {
+        case salary > 0 && salary <= 500000:
+          return salary * 0.00;
+        case salary > 500000 && salary <= 1000000:
+          return salary * 0.10;
+        case salary > 1000000 && salary <= 1500000:
+          return salary * 0.20;
+        case salary > 1500000:
+          return salary * 0.30;
+        default:
+          return 0;
+      }
+    }
+
+    
+    function getTaxRate(salary) {
+      switch (true) {
+        case salary > 0 && salary <= 500000:
+          return "0%";
+        case salary > 500000 && salary <= 1000000:
+          return "10%";
+        case salary > 1000000 && salary <= 1500000:
+          return "20%";
+        case salary > 1500000:
+          return "30%";
+        default:
+          return "N/A";
+      }
+    }
+
+   
+    const salaryInput = document.getElementById('salaryInput');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const resultsDiv = document.getElementById('results');
+    const displaySalary = document.getElementById('displaySalary');
+    const displayRate = document.getElementById('displayRate');
+    const displayTax = document.getElementById('displayTax');
+    const errorDiv = document.getElementById('error');
+    const errorMessage = document.getElementById('errorMessage');
+
+    // Add event listener to the button
+    calculateBtn.addEventListener('click', () => {
+      const salary = parseFloat(salaryInput.value);
+
+      // Hide previous results and errors
+      resultsDiv.style.display = 'none';
+      errorDiv.style.display = 'none';
+
+      // Validate input
+      if (isNaN(salary) || salary <= 0) {
+        errorMessage.textContent = "Please enter a valid salary amount greater than zero.";
+        errorDiv.style.display = 'block';
+        return;
+      }
+
+      // Calculate tax and rate
+      const taxAmount = findTax(salary);
+      const taxRate = getTaxRate(salary);
+      
+      // Format numbers as currency
+      const formattedSalary = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(salary);
+      const formattedTax = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(taxAmount);
+
+      // Display results
+      displaySalary.textContent = formattedSalary;
+      displayRate.textContent = taxRate;
+      displayTax.textContent = formattedTax;
+      resultsDiv.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
