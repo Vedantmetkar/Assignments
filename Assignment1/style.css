@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Lighter background for a simpler look */
+    color: #333;
+    display: flex; /* Use flexbox for the main layout */
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the page takes up at least the full viewport height */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff; /* Simple white header */
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #555;
+}
+
+.social-links a {
+    color: #555;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.menubar {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.menubar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menubar li a {
+    display: block;
+    color: #555;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.menubar li a:hover {
+    background-color: #e2e2e2; /* Subtle hover effect */
+}
+
+/* New layout for main content area */
+.main-container {
+    display: flex;
+    flex: 1; /* This makes the main container grow and take up available space */
+}
+
+.sidebar {
+    background-color: #e2e2e2;
+    padding: 1.5rem;
+    width: 250px; /* Set a fixed width for the sidebar */
+    flex-shrink: 0; /* Prevents the sidebar from shrinking */
+}
+
+.content {
+    display: flex;
+    flex-direction: column; /* Stack the content boxes vertically */
+    gap: 20px;
+    padding: 20px;
+    flex-grow: 1; /* This makes the content area expand */
+}
+
+.card {
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd; /* Simple border instead of a shadow */
+    text-align: center;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column; /* Stack sidebar and content on small screens */
+    }
+    
+    .sidebar {
+        width: 100%;
+    }
+}
