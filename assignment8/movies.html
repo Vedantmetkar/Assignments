@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now Playing</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 120000px;
+            margin: auto;
+        }
+        .movie-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+        }
+        .movie-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .movie-item h3 {
+            font-size: 1.2em;
+            margin: 100px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Now Playing</h1>
+
+    <div class="movie-grid">
+        <a href="movie-details.html" class="movie-item">
+            <img src="https://m.media-amazon.com/images/M/MV5BZjA4ZDJmNmQtZTA4NS00NzhmLTg2ODktZjg3MDliZmUzYTZmXkEyXkFqcGdeQXVyODEyNjEwMDk@._V1_FMjpg_UX1000_.jpg" alt="Pushpa: The Rise Poster">
+            <h3>Pushpa: The Rise</h3>
+        </a>
+        <a href="movie-details.html" class="movie-item">
+            <img src="https://image.tmdb.org/t/p/w1280/qwoY6rKxrhC06oaIMu8hcjxHirm.jpg" alt="Minions Poster">
+            <h3>Minions</h3>
+        </a>
+        <a href="movie-details.html" class="movie-item">
+            <img src="https://m.media-amazon.com/images/M/MV5BMTY4NTc2NTYzMl5BMl5BanBnXkFtZTcwNDk2MzkwMw@@._V1_.jpg" alt="3 Idiots Poster">
+            <h3>3 Idiots</h3>
+        </a>
+        <a href="movie-details.html" class="movie-item">
+            <img src="https://fr.web.img2.acsta.net/pictures/16/06/28/13/39/205309.jpg" alt="Sultan Poster">
+            <h3>Sultan</h3>
+        </a>
+       
+    </div>
+
+</body>
+</html>

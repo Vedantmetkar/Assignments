@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        .confirmation-box {
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            background-color: #e9f7ef;
+        }
+        h1 { color: #28a745; }
+        .booking-id {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .details-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            display: inline-block;
+        }
+        .details-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const email = urlParams.get('email');
+            const mobile = urlParams.get('mobile');
+
+            document.getElementById('conf-name').textContent = name;
+            document.getElementById('conf-email').textContent = email;
+            document.getElementById('conf-mobile').textContent = mobile;
+
+            const bookingId = Math.random().toString(36).substring(2, 10).toUpperCase();
+            document.getElementById('booking-id').textContent = bookingId;
+        });
+    </script>
+</head>
+<body>
+
+    <div class="confirmation-box">
+        <h1>Booking Confirmed!</h1>
+        <p>Your seat has been successfully booked.</p>
+        <p>Your Booking ID:</p>
+        <div class="booking-id" id="booking-id"></div>
+        <p>Booking Details:</p>
+        <ul class="details-list">
+            <li><strong>Name:</strong> <span id="conf-name"></span></li>
+            <li><strong>Email:</strong> <span id="conf-email"></span></li>
+            <li><strong>Mobile:</strong> <span id="conf-mobile"></span></li>
+        </ul>
+    </div>
+
+</body>
+</html>
